@@ -14,7 +14,7 @@ export const LoginUser = createAsyncThunk(
   async (user, thunkAPI) => {
     try {
       const response = await axios.post(
-        'http://monkfish-app-hmwl9.ondigitalocean.app/login',
+        'https://monkfish-app-hmwl9.ondigitalocean.app/login',
         {
           email: user.email,
           password: user.password,
@@ -33,7 +33,7 @@ export const LoginUser = createAsyncThunk(
 export const GetMe = createAsyncThunk('user/GetMe', async (_, thunkAPI) => {
   try {
     const response = await axios.get(
-      'http://monkfish-app-hmwl9.ondigitalocean.app/me',
+      'https://monkfish-app-hmwl9.ondigitalocean.app/me',
     );
     return response.data;
   } catch (error) {
@@ -45,7 +45,7 @@ export const GetMe = createAsyncThunk('user/GetMe', async (_, thunkAPI) => {
 });
 
 export const LogOut = createAsyncThunk('user/LogOut', async () => {
-  await axios.delete('http://monkfish-app-hmwl9.ondigitalocean.app/logout');
+  await axios.delete('https://monkfish-app-hmwl9.ondigitalocean.app/logout');
 });
 
 export const authSlide = createSlice({

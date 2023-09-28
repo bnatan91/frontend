@@ -31,7 +31,7 @@ function AddAdmin() {
 
     try {
       await axios.post(
-        'http://monkfish-app-hmwl9.ondigitalocean.app/api/users',
+        'https://monkfish-app-hmwl9.ondigitalocean.app/api/users',
         {
           name: name,
           email: email,

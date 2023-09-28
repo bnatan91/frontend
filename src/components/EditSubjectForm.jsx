@@ -13,7 +13,7 @@ const EditSubjectForm = () => {
     const getSubjectsById = async () => {
       try {
         const response = await axios.get(
-          `http://monkfish-app-hmwl9.ondigitalocean.app/subjects/${id}`,
+          `https://monkfish-app-hmwl9.ondigitalocean.app/subjects/${id}`,
         );
         console.log();
         setName(response.data[0].name);
@@ -39,7 +39,7 @@ const EditSubjectForm = () => {
     e.preventDefault();
     try {
       await axios.patch(
-        `http://monkfish-app-hmwl9.ondigitalocean.app/subjects/${id}`,
+        `https://monkfish-app-hmwl9.ondigitalocean.app/subjects/${id}`,
         {
           name: getName,
         },

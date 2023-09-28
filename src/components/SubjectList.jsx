@@ -11,7 +11,7 @@ const SubjectsList = () => {
 
   const getSubjects = async () => {
     const response = await axios.get(
-      'http://monkfish-app-hmwl9.ondigitalocean.app/subjects',
+      'https://monkfish-app-hmwl9.ondigitalocean.app/subjects',
     );
     setSubjects(response.data);
   };
@@ -19,7 +19,7 @@ const SubjectsList = () => {
   const deleteSubject = async (subjectId) => {
     console.log(subjectId);
     await axios.delete(
-      `http://monkfish-app-hmwl9.ondigitalocean.app/subjects/${subjectId}`,
+      `https://monkfish-app-hmwl9.ondigitalocean.app/subjects/${subjectId}`,
     );
     getSubjects();
   };

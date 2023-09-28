@@ -22,7 +22,7 @@ const AddSubjectForm = () => {
 
     try {
       await axios.post(
-        'http://monkfish-app-hmwl9.ondigitalocean.app/subjects',
+        'https://monkfish-app-hmwl9.ondigitalocean.app/subjects',
         {
           name: name,
           category: category,

@@ -11,14 +11,14 @@ function MajorList() {
 
   const getMajors = async () => {
     const response = await axios.get(
-      'http://monkfish-app-hmwl9.ondigitalocean.app/majors',
+      'https://monkfish-app-hmwl9.ondigitalocean.app/majors',
     );
     setMajors(response.data);
   };
 
   const deleteMajors = async (majorId) => {
     await axios.delete(
-      `http://monkfish-app-hmwl9.ondigitalocean.app/majors/${majorId}`,
+      `https://monkfish-app-hmwl9.ondigitalocean.app/majors/${majorId}`,
     );
     getMajors();
   };

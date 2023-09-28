@@ -13,7 +13,7 @@ function EditMajorForm() {
     const getSubjectsById = async () => {
       try {
         const response = await axios.get(
-          `http://monkfish-app-hmwl9.ondigitalocean.app/majors/${id}`,
+          `https://monkfish-app-hmwl9.ondigitalocean.app/majors/${id}`,
         );
         console.log();
         setName(response.data[0].name);
@@ -39,7 +39,7 @@ function EditMajorForm() {
     e.preventDefault();
     try {
       await axios.patch(
-        `http://monkfish-app-hmwl9.ondigitalocean.app/majors/${id}`,
+        `https://monkfish-app-hmwl9.ondigitalocean.app/majors/${id}`,
         {
           name: getName,
           category: getCategory,

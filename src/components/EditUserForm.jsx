@@ -16,7 +16,7 @@ const AddEditForm = () => {
     const getUserById = async () => {
       try {
         const response = await axios.get(
-          `http://monkfish-app-hmwl9.ondigitalocean.app/users/${id}`,
+          `https://monkfish-app-hmwl9.ondigitalocean.app/users/${id}`,
         );
         setName(response.data.name);
         setEmail(response.data.email);
@@ -53,7 +53,7 @@ const AddEditForm = () => {
 
     try {
       await axios.patch(
-        `http://monkfish-app-hmwl9.ondigitalocean.app/users/${id}`,
+        `https://monkfish-app-hmwl9.ondigitalocean.app/users/${id}`,
         {
           name: name,
           email: email,
