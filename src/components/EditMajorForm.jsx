@@ -12,9 +12,7 @@ function EditMajorForm() {
   useEffect(() => {
     const getSubjectsById = async () => {
       try {
-        const response = await axios.get(
-          `https://monkfish-app-hmwl9.ondigitalocean.app/majors/${id}`,
-        );
+        const response = await axios.get(`/api/majors/${id}`);
         console.log();
         setName(response.data[0].name);
         setGetCategory(response.data[0].category);
@@ -38,13 +36,10 @@ function EditMajorForm() {
   const onSubmitSubject = async (e) => {
     e.preventDefault();
     try {
-      await axios.patch(
-        `https://monkfish-app-hmwl9.ondigitalocean.app/majors/${id}`,
-        {
-          name: getName,
-          category: getCategory,
-        },
-      );
+      await axios.patch(`/api/majors/${id}`, {
+        name: getName,
+        category: getCategory,
+      });
       navigate('/majors');
     } catch (error) {
       if (error.response) {

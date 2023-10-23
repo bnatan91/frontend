@@ -7,10 +7,10 @@ import AddUser from './pages/AddUser.jsx';
 import EditUser from './pages/EditUser.jsx';
 import AddSubject from './pages/AddSubject.jsx';
 import EditSubject from './pages/EditSubject.jsx';
-import AddAdmin from './pages/AddAdmin.jsx';
 import Majors from './pages/Majors.jsx';
 import AddMajor from './pages/AddMajor.jsx';
 import EditMajor from './pages/EditMajor.jsx';
+import AddAdmin from './components/AddAdminForm.jsx';
 
 function App() {
   return (

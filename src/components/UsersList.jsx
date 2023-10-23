@@ -10,16 +10,12 @@ const UsersList = () => {
   }, []);
 
   const getUsers = async () => {
-    const response = await axios.get(
-      'https://monkfish-app-hmwl9.ondigitalocean.app/users',
-    );
+    const response = await axios.get('/api/users');
     setUsers(response.data);
   };
 
   const deleteUser = async (userId) => {
-    await axios.delete(
-      `https://monkfish-app-hmwl9.ondigitalocean.app/users/${userId}`,
-    );
+    await axios.delete(`/api/users/${userId}`);
   };
 
   const onClickDelete = (userId) => {

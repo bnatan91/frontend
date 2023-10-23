@@ -31,7 +31,7 @@ const AddUserForm = () => {
     e.preventDefault();
 
     try {
-      await axios.post('https://monkfish-app-hmwl9.ondigitalocean.app/users', {
+      await axios.post('/api/users', {
         name: name,
         email: email,
         password: password,

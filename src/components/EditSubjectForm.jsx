@@ -12,9 +12,7 @@ const EditSubjectForm = () => {
   useEffect(() => {
     const getSubjectsById = async () => {
       try {
-        const response = await axios.get(
-          `https://monkfish-app-hmwl9.ondigitalocean.app/subjects/${id}`,
-        );
+        const response = await axios.get(`/api/subjects/${id}`);
         console.log();
         setName(response.data[0].name);
         setGetCategory(response.data[0].category);
@@ -38,12 +36,9 @@ const EditSubjectForm = () => {
   const onSubmitSubject = async (e) => {
     e.preventDefault();
     try {
-      await axios.patch(
-        `https://monkfish-app-hmwl9.ondigitalocean.app/subjects/${id}`,
-        {
-          name: getName,
-        },
-      );
+      await axios.patch(`/api/subjects/${id}`, {
+        name: getName,
+      });
       navigate('/subjects');
     } catch (error) {
       if (error.response) {

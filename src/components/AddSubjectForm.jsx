@@ -21,13 +21,10 @@ const AddSubjectForm = () => {
     e.preventDefault();
 
     try {
-      await axios.post(
-        'https://monkfish-app-hmwl9.ondigitalocean.app/subjects',
-        {
-          name: name,
-          category: category,
-        },
-      );
+      await axios.post('/api/subjects', {
+        name: name,
+        category: category,
+      });
       navigate('/subjects');
     } catch (error) {
       if (error.response) {

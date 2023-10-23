@@ -20,7 +20,7 @@ function AddMajorForm() {
   const onSubmitMajorHandler = async (e) => {
     e.preventDefault(e);
     try {
-      await axios.post('https://monkfish-app-hmwl9.ondigitalocean.app/majors', {
+      await axios.post('/api/majors', {
         name: name,
         category: category,
       });

@@ -15,9 +15,7 @@ const AddEditForm = () => {
   useEffect(() => {
     const getUserById = async () => {
       try {
-        const response = await axios.get(
-          `https://monkfish-app-hmwl9.ondigitalocean.app/users/${id}`,
-        );
+        const response = await axios.get(`/api/users/${id}`);
         setName(response.data.name);
         setEmail(response.data.email);
         setRoles(response.data.roles);
@@ -52,16 +50,13 @@ const AddEditForm = () => {
     e.preventDefault();
 
     try {
-      await axios.patch(
-        `https://monkfish-app-hmwl9.ondigitalocean.app/users/${id}`,
-        {
-          name: name,
-          email: email,
-          password: password,
-          confPassword: confPassword,
-          roles: roles,
-        },
-      );
+      await axios.patch(`/api/users/${id}`, {
+        name: name,
+        email: email,
+        password: password,
+        confPassword: confPassword,
+        roles: roles,
+      });
       navigate('/users');
     } catch (error) {
       if (error.response) {

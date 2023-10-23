@@ -30,16 +30,13 @@ function AddAdmin() {
     e.preventDefault();
 
     try {
-      await axios.post(
-        'https://monkfish-app-hmwl9.ondigitalocean.app/api/users',
-        {
-          name: name,
-          email: email,
-          password: password,
-          confPassword: confPassword,
-          roles: roles,
-        },
-      );
+      await axios.post('/api/api/users', {
+        name: name,
+        email: email,
+        password: password,
+        confPassword: confPassword,
+        roles: roles,
+      });
       navigate('/');
     } catch (error) {
       if (error.response) {
