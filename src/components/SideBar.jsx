@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 import {
   IoHome,
@@ -8,7 +8,7 @@ import {
   IoLogOut,
 } from 'react-icons/io5';
 import { useDispatch, useSelector } from 'react-redux';
-import { LogOut, reset, user } from '../features/authSlice';
+import { LogOut, reset } from '../features/authSlice';
 
 const SideBar = () => {
   const dispatch = useDispatch();
