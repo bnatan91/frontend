@@ -25,7 +25,6 @@ const EditMajorForm = () => {
         setMajorExtraNote(response.data.extra_note);
         setMajorCategory(response.data.category);
       } catch (error) {
-        console.log(error.message);
         if (error.message) {
           setMsg(error.response.data.msg);
         }

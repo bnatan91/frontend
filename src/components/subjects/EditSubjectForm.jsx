@@ -15,7 +15,6 @@ const EditSubjectForm = () => {
     const getSubjectsById = async () => {
       try {
         const response = await axios.get(`${API_URL}/api/subjects/${id}`);
-        console.log(response);
         setName(response.data[0].name);
         setCategory(response.data[0].category);
       } catch (error) {

@@ -16,7 +16,6 @@ const SubjectsList = () => {
   };
 
   const deleteSubject = async (subjectId) => {
-    console.log(subjectId);
     await axios.delete(`${API_URL}/api/subjects/${subjectId}`);
     getSubjects();
   };
