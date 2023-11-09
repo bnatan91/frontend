@@ -5,7 +5,7 @@ import react from '@vitejs/plugin-react';
 export default defineConfig({
   server: {
     proxy: {
-      '/api': 'http://localhost:5000',
+      '/api': 'https://monkfish-app-hmwl9.ondigitalocean.app',
     },
   },
   plugins: [react()],
