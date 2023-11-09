@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { API_URL } from '../../config/config';
 function AddAdmin() {
   const [name, setName] = useState('');
   const [username, setUsername] = useState('');
@@ -30,7 +31,7 @@ function AddAdmin() {
     e.preventDefault();
 
     try {
-      await axios.post('/api/test/users', {
+      await axios.post(`${API_URL}/api/test/users`, {
         name: name,
         username: username,
         password: password,

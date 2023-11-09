@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
+import { API_URL } from '../../config/config';
 
 const AddMajorForm = () => {
   const [majorLabel, setMajorLabel] = useState('');
@@ -33,7 +34,7 @@ const AddMajorForm = () => {
     e.preventDefault();
 
     try {
-      await axios.post(`/api/majors/${studentId}`, {
+      await axios.post(`${API_URL}/api/majors/${studentId}`, {
         majorLabel: majorLabel,
         majorName: majorName,
         majorCategory: majorCategory,

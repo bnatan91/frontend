@@ -14,6 +14,8 @@ import Students from './pages/students/Students';
 import EditMajor from './pages/majors/EditMajor';
 import AddMajor from './pages/majors/AddMajor';
 import Majors from './pages/majors/Majors';
+import axios from 'axios';
+axios.defaults.withCredentials = true;
 
 function App() {
   return (

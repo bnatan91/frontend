@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
+import { API_URL } from '../../config/config';
 
 const EditStudentForm = () => {
   const [getCode, setCode] = useState('');
@@ -11,7 +12,7 @@ const EditStudentForm = () => {
   useEffect(() => {
     const getStudentById = async () => {
       try {
-        const response = await axios.get(`/api/students/${id}`);
+        const response = await axios.get(`${API_URL}/api/students/${id}`);
         console.log();
         setCode(response.data[0].studentCode);
       } catch (error) {
@@ -34,7 +35,7 @@ const EditStudentForm = () => {
   const onSubmitStudent = async (e) => {
     e.preventDefault();
     try {
-      await axios.patch(`/api/students/${id}`, {
+      await axios.patch(`${API_URL}/api/students/${id}`, {
         studentCode: getCode,
       });
       navigate('/students');

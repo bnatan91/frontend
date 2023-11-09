@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { API_URL } from '../../config/config';
 
 const StudentsList = () => {
   const [students, setStudents] = useState([]);
@@ -14,12 +15,12 @@ const StudentsList = () => {
   };
 
   const getStudents = async () => {
-    const response = await axios.get('/api/students');
+    const response = await axios.get(`${API_URL}/api/students`);
     setStudents(response.data);
   };
 
   const deleteSubject = async (studentId) => {
-    await axios.delete(`/api/students/${studentId}`);
+    await axios.delete(`${API_URL}/api/students/${studentId}`);
     getStudents();
   };
 

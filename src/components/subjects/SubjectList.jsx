@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { API_URL } from '../../config/config';
 
 const SubjectsList = () => {
   const [subjects, setSubjects] = useState([]);
@@ -10,13 +11,13 @@ const SubjectsList = () => {
   }, []);
 
   const getSubjects = async () => {
-    const response = await axios.get('/api/subjects');
+    const response = await axios.get(`${API_URL}/api/subjects`);
     setSubjects(response.data);
   };
 
   const deleteSubject = async (subjectId) => {
     console.log(subjectId);
-    await axios.delete(`/api/subjects/${subjectId}`);
+    await axios.delete(`${API_URL}/api/subjects/${subjectId}`);
     getSubjects();
   };
 

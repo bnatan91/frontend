@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { API_URL } from '../../config/config';
 
 const AddStudentForm = () => {
   const [code, setCode] = useState('');
@@ -16,7 +17,7 @@ const AddStudentForm = () => {
     e.preventDefault();
 
     try {
-      await axios.post('/api/students', {
+      await axios.post(`${API_URL}/api/students`, {
         studentCode: code,
       });
       navigate('/students');

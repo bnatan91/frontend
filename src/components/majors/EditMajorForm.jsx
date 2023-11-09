@@ -1,13 +1,14 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
+import { API_URL } from '../../config/config';
 
 const EditMajorForm = () => {
-  const [majorLabel, setMajorLabel] = useState('');
-  const [majorName, setMajorName] = useState('');
+  const [majorLabel, setMajorLabel] = useState(' ');
+  const [majorName, setMajorName] = useState(' ');
   const [majorCategory, setMajorCategory] = useState('IPA');
-  const [majorDescription, setMajorDescription] = useState('');
-  const [majorExtraNote, setMajorExtraNote] = useState('');
+  const [majorDescription, setMajorDescription] = useState(' ');
+  const [majorExtraNote, setMajorExtraNote] = useState(' ');
   const [msg, setMsg] = useState('');
   const navigate = useNavigate();
   const { studentId, id } = useParams();
@@ -15,7 +16,9 @@ const EditMajorForm = () => {
   useEffect(() => {
     const getSubjectsById = async () => {
       try {
-        const response = await axios.get(`/api/majors/${studentId}/${id}`);
+        const response = await axios.get(
+          `${API_URL}/api/majors/${studentId}/${id}`,
+        );
         setMajorLabel(response.data.label);
         setMajorName(response.data.name);
         setMajorDescription(response.data.description);
@@ -54,7 +57,7 @@ const EditMajorForm = () => {
   const onSubmitSubject = async (e) => {
     e.preventDefault();
     try {
-      await axios.patch(`/api/majors/${studentId}/${id}`, {
+      await axios.patch(`${API_URL}/api/majors/${studentId}/${id}`, {
         majorLabel: majorLabel,
         majorName: majorName,
         majorCategory: majorCategory,

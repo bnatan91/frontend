@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
+import { API_URL } from '../../config/config';
 
 const EditSubjectForm = () => {
   const [getName, setName] = useState('');
@@ -13,9 +14,10 @@ const EditSubjectForm = () => {
   useEffect(() => {
     const getSubjectsById = async () => {
       try {
-        const response = await axios.get(`/api/subjects/${id}`);
-        console.log();
+        const response = await axios.get(`${API_URL}/api/subjects/${id}`);
+        console.log(response);
         setName(response.data[0].name);
+        setCategory(response.data[0].category);
       } catch (error) {
         if (error.message) {
           setMsg(error.response.data.msg);
@@ -40,7 +42,7 @@ const EditSubjectForm = () => {
   const onSubmitSubject = async (e) => {
     e.preventDefault();
     try {
-      await axios.patch(`/api/subjects/${id}`, {
+      await axios.patch(`${API_URL}/api/subjects/${id}`, {
         name: getName,
         category: category,
       });

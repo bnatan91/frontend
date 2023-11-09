@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { API_URL } from '../../config/config';
 
 const AddSubjectForm = () => {
   const [name, setName] = useState('');
@@ -20,7 +21,7 @@ const AddSubjectForm = () => {
     e.preventDefault();
 
     try {
-      await axios.post('/api/subjects', {
+      await axios.post(`${API_URL}/api/subjects`, {
         name: name,
         category: category,
       });

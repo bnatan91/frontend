@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { API_URL } from '../../config/config';
 
 const AddUserForm = () => {
   const [name, setName] = useState('');
@@ -31,7 +32,7 @@ const AddUserForm = () => {
     e.preventDefault();
 
     try {
-      await axios.post('/api/users', {
+      await axios.post(`${API_URL}/api/users`, {
         name: name,
         username: username,
         password: password,

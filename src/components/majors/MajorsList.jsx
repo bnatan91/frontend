@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
+import { API_URL } from '../../config/config';
 
 const MajorsList = () => {
   const [majors, setMajors] = useState([]);
@@ -12,12 +13,12 @@ const MajorsList = () => {
   }, []);
 
   const getMajors = async () => {
-    const response = await axios.get(`/api/majors/${studentId}`);
+    const response = await axios.get(`${API_URL}/api/majors/${studentId}`);
     setMajors(response.data);
   };
 
   const deleteMajor = async (majorId) => {
-    await axios.delete(`/api/majors/${majorId}`);
+    await axios.delete(`${API_URL}/api/majors/${majorId}`);
     getMajors();
   };
 

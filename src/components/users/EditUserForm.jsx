@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
+import { API_URL } from '../../config/config';
 
 const AddEditForm = () => {
   const [name, setName] = useState('');
@@ -15,7 +16,7 @@ const AddEditForm = () => {
   useEffect(() => {
     const getUserById = async () => {
       try {
-        const response = await axios.get(`/api/users/${id}`);
+        const response = await axios.get(`${API_URL}/api/users/${id}`);
         setName(response.data.name);
         setUsername(response.data.username);
         setRoles(response.data.roles);
@@ -50,7 +51,7 @@ const AddEditForm = () => {
     e.preventDefault();
 
     try {
-      await axios.patch(`/api/users/${id}`, {
+      await axios.patch(`${API_URL}/api/users/${id}`, {
         name: name,
         username: username,
         password: password,
