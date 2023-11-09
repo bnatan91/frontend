@@ -3,7 +3,7 @@ import Layout from '../utils/Layout';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { GetMe } from '../../features/authSlice';
-import AddEditForm from '../../components/Users/EditUserForm';
+import AddEditForm from '../../components/users/EditUserForm';
 
 const EditUser = () => {
   const dispatch = useDispatch();

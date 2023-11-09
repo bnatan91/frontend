@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { GetMe } from '../../features/authSlice';
 import Layout from '../utils/Layout';
-import UsersList from '../../components/Users/UsersList';
+import UsersList from '../../components/users/UsersList';
 
 const Users = () => {
   const dispatch = useDispatch();
