@@ -12,8 +12,8 @@ import AddStudent from './pages/students/AddSubject';
 import EditStudent from './pages/students/EditSubject';
 import Students from './pages/students/Students';
 import EditMajor from './pages/majors/EditMajor';
-import Majors from './pages/majors/majors';
 import AddMajor from './pages/majors/AddMajor';
+import Majors from './pages/majors/Majors';
 
 function App() {
   return (
