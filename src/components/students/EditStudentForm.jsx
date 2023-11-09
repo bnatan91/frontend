@@ -13,7 +13,6 @@ const EditStudentForm = () => {
     const getStudentById = async () => {
       try {
         const response = await axios.get(`${API_URL}/api/students/${id}`);
-        console.log();
         setCode(response.data[0].studentCode);
       } catch (error) {
         if (error.message) {
