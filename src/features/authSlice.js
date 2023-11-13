@@ -14,10 +14,14 @@ export const LoginUser = createAsyncThunk(
   'user/LoginUser',
   async (user, thunkAPI) => {
     try {
-      const response = await axios.post(`${API_URL}/api/login`, {
-        username: user.username,
-        password: user.password,
-      });
+      const response = await axios.post(
+        `${API_URL}/api/login`,
+        {
+          username: user.username,
+          password: user.password,
+        },
+        { withCredentials: true },
+      );
       return response.data;
     } catch (error) {
       if (error.response) {
@@ -30,7 +34,9 @@ export const LoginUser = createAsyncThunk(
 
 export const GetMe = createAsyncThunk('user/GetMe', async (_, thunkAPI) => {
   try {
-    const response = await axios.get(`${API_URL}/api/me`);
+    const response = await axios.get(`${API_URL}/api/me`, {
+      withCredentials: true,
+    });
     return response.data;
   } catch (error) {
     if (error.response) {
@@ -64,8 +70,6 @@ export const authSlide = createSlice({
       state.isError = true;
       state.message = action.payload;
     });
-
-    //get user login
 
     builder.addCase(GetMe.pending, (state) => {
       state.isLoading = true;
