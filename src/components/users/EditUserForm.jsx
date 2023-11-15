@@ -29,8 +29,6 @@ const AddEditForm = () => {
     getUserById();
   }, [id]);
 
-  console.log(roles);
-
   const onChangeName = (e) => {
     setName(e.target.value);
   };

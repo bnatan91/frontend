@@ -20,6 +20,7 @@ export const LoginUser = createAsyncThunk(
           username: user.username,
           password: user.password,
         },
+
         { withCredentials: true },
       );
       return response.data;
@@ -37,6 +38,7 @@ export const GetMe = createAsyncThunk('user/GetMe', async (_, thunkAPI) => {
     const response = await axios.get(`${API_URL}/api/me`, {
       withCredentials: true,
     });
+    console.log(response);
     return response.data;
   } catch (error) {
     if (error.response) {
