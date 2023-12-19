@@ -38,7 +38,6 @@ export const GetMe = createAsyncThunk('user/GetMe', async (_, thunkAPI) => {
     const response = await axios.get(`${API_URL}/api/me`, {
       withCredentials: true,
     });
-    console.log(response);
     return response.data;
   } catch (error) {
     if (error.response) {
@@ -56,7 +55,7 @@ export const authSlide = createSlice({
   name: 'auth',
   initialState,
   reducers: {
-    reset: (state) => initialState,
+    reset: () => initialState,
   },
   extraReducers: (builder) => {
     builder.addCase(LoginUser.pending, (state) => {
@@ -88,8 +87,6 @@ export const authSlide = createSlice({
     });
   },
 });
-
-console.log(initialState);
 
 export const { reset } = authSlide.actions;
 export default authSlide.reducer;

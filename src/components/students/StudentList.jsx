@@ -37,6 +37,7 @@ const StudentsList = () => {
             <th>No</th>
             <th>Student Code</th>
             <th>Created By</th>
+            <th>Updated By</th>
             <th>Actions</th>
           </tr>
         </thead>
@@ -45,7 +46,8 @@ const StudentsList = () => {
             <tr key={student.uuid}>
               <td>{index + 1}</td>
               <td>{student.studentCode}</td>
-              <td>{student.user.name}</td>
+              <td>{student.createdBy}</td>
+              <td>{student.updatedBy}</td>
               <td>
                 <Link
                   to={`./${student.uuid}`}

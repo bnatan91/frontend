@@ -21,7 +21,7 @@ const Navbar = () => {
       >
         <div className="navbar-brand">
           <NavLink to={'/dashboard'} className="navbar-item">
-            <img src="#" width="112" height="28" alt="logo" />
+            Admin Dashboard
           </NavLink>
           <a
             href="!#"

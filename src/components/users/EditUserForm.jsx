@@ -67,7 +67,7 @@ const AddEditForm = () => {
   return (
     <>
       <h1 className="title">Users</h1>
-      <h2 className="subtitle">Add Update Users</h2>
+      <h2 className="subtitle">Edit Users</h2>
       <div className="card is-shadowless">
         <div className="card-content">
           <div className="content">

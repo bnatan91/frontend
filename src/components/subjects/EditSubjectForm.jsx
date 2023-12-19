@@ -15,8 +15,12 @@ const EditSubjectForm = () => {
     const getSubjectsById = async () => {
       try {
         const response = await axios.get(`${API_URL}/api/subjects/${id}`);
-        setName(response.data[0].name);
-        setCategory(response.data[0].category);
+        if (response.data === null) {
+          setMsg('Access Forbidden');
+        } else {
+          setName(response.data.name);
+          setCategory(response.data.category);
+        }
       } catch (error) {
         if (error.message) {
           setMsg(error.response.data.msg);
@@ -56,11 +60,11 @@ const EditSubjectForm = () => {
   return (
     <>
       <h1 className="title">Subjects</h1>
-      <h2 className="subtitle">Edit New Subjects</h2>
+      <h2 className="subtitle`">Edit Subjects</h2>
       <div className="card is-shadowless">
         <div className="card-content">
           <div className="content">
-            <form onSubmit={onSubmitSubject} action="" method="post">
+            <form onSubmit={onSubmitSubject} action="" method="post" disabled>
               <p className="has-text-center">{msg}</p>
               <div className="field">
                 <label className="label">Subject Name</label>
@@ -70,7 +74,7 @@ const EditSubjectForm = () => {
                     value={getName}
                     onChange={onChangeName}
                     className="input"
-                    // placeholder="Subject"
+                    disabled={msg === '' ? false : true}
                   />
                 </div>
               </div>
@@ -78,7 +82,11 @@ const EditSubjectForm = () => {
                 <label className="label">Category</label>
                 <div className="control">
                   <div className="select is-fullwidth">
-                    <select onChange={onChangeCategory} value={category}>
+                    <select
+                      onChange={onChangeCategory}
+                      value={category}
+                      disabled={msg === '' ? false : true}
+                    >
                       <option value="IPA">IPA</option>
                       <option value="IPS">IPS</option>
                       <option value="BAHASA">Bahasa</option>
@@ -95,7 +103,11 @@ const EditSubjectForm = () => {
                   >
                     Back
                   </button>
-                  <button type="submit" className="button is-success ml-1">
+                  <button
+                    type="submit"
+                    className="button is-success ml-1"
+                    disabled={msg === '' ? false : true}
+                  >
                     Update
                   </button>
                 </div>

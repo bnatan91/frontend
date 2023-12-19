@@ -23,6 +23,7 @@ const AddStudentForm = () => {
       navigate('/students');
     } catch (error) {
       if (error.response) {
+        console.log(error.response);
         setMsg(error.response.data.msg);
       }
     }

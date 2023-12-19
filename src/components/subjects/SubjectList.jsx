@@ -2,10 +2,12 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { API_URL } from '../../config/config';
+import { useSelector } from 'react-redux';
 
 const SubjectsList = () => {
   const [subjects, setSubjects] = useState([]);
 
+  const { user } = useSelector((state) => state.auth);
   useEffect(() => {
     getSubjects();
   }, []);
@@ -37,6 +39,7 @@ const SubjectsList = () => {
             <th>No</th>
             <th>Subject Name</th>
             <th>Created By</th>
+            <th>Updated By</th>
             <th>Actions</th>
           </tr>
         </thead>
@@ -45,7 +48,8 @@ const SubjectsList = () => {
             <tr key={subject.uuid}>
               <td>{index + 1}</td>
               <td>{subject.name}</td>
-              <td>{subject.user.name}</td>
+              <td>{subject.createdBy}</td>
+              <td>{subject.updatedBy}</td>
               <td>
                 <Link
                   to={`./${subject.uuid}`}
@@ -53,12 +57,22 @@ const SubjectsList = () => {
                 >
                   edit
                 </Link>
-                <button
-                  onClick={() => onClickDelete(subject.uuid)}
-                  className="button is-small is-danger ml-1"
-                >
-                  delete
-                </button>
+                {user.roles === 'admin' ? (
+                  <button
+                    onClick={() => onClickDelete(subject.uuid)}
+                    className="button is-small is-danger ml-1"
+                  >
+                    delete
+                  </button>
+                ) : (
+                  <button
+                    disabled={user.name !== subject.createdBy ? true : false}
+                    onClick={() => onClickDelete(subject.uuid)}
+                    className="button is-small is-danger ml-1"
+                  >
+                    delete
+                  </button>
+                )}
               </td>
             </tr>
           ))}

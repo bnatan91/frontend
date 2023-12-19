@@ -16,12 +16,12 @@ const UsersList = () => {
   };
 
   const deleteUser = async (userId) => {
-    await axios.delete(`api/users/${userId}`);
+    await axios.delete(`${API_URL}/api/users/${userId}`);
+    getUsers();
   };
 
   const onClickDelete = (userId) => {
     deleteUser(userId);
-    getUsers();
   };
 
   return (

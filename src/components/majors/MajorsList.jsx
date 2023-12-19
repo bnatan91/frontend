@@ -9,7 +9,6 @@ const MajorsList = () => {
 
   useEffect(() => {
     getMajors();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const getMajors = async () => {
@@ -18,7 +17,7 @@ const MajorsList = () => {
   };
 
   const deleteMajor = async (majorId) => {
-    await axios.delete(`${API_URL}/api/majors/${majorId}`);
+    await axios.delete(`${API_URL}/api/majors/${studentId}/${majorId}`);
     getMajors();
   };
 
@@ -33,12 +32,17 @@ const MajorsList = () => {
       <Link to="./add" className="button is-primary mb-2">
         Add New
       </Link>
+
+      <Link to="/students" className="button is-primary ml-2">
+        Students
+      </Link>
       <table className="table is-striped is-fullwidth">
         <thead>
           <tr>
             <th>No</th>
             <th>Major Name</th>
             <th>Created By</th>
+            <th>Updated By</th>
             <th>Actions</th>
           </tr>
         </thead>
@@ -47,7 +51,8 @@ const MajorsList = () => {
             <tr key={major.uuid}>
               <td>{index + 1}</td>
               <td>{major.name}</td>
-              <td>{}</td>
+              <td>{major.createdBy}</td>
+              <td>{major.updatedBy}</td>
               <td>
                 <Link
                   to={`./${major.uuid}`}

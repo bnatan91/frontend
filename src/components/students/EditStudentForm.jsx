@@ -13,7 +13,7 @@ const EditStudentForm = () => {
     const getStudentById = async () => {
       try {
         const response = await axios.get(`${API_URL}/api/students/${id}`);
-        setCode(response.data[0].studentCode);
+        setCode(response.data.studentCode);
       } catch (error) {
         if (error.message) {
           setMsg(error.response.data.msg);
@@ -48,7 +48,7 @@ const EditStudentForm = () => {
   return (
     <>
       <h1 className="title">Student</h1>
-      <h2 className="subtitle">Edit New Student</h2>
+      <h2 className="subtitle">Edit Student</h2>
       <div className="card is-shadowless">
         <div className="card-content">
           <div className="content">

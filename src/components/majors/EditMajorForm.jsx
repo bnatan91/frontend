@@ -74,7 +74,7 @@ const EditMajorForm = () => {
   return (
     <>
       <h1 className="title">Major</h1>
-      <h2 className="subtitle">Edit New Major</h2>
+      <h2 className="subtitle">Edit Major</h2>
       <div className="card is-shadowless">
         <div className="card-content">
           <div className="content">
@@ -88,7 +88,6 @@ const EditMajorForm = () => {
                     value={majorLabel}
                     onChange={onChangeLabel}
                     className="input"
-                    // placeholder="Subject"
                   />
                 </div>
               </div>
@@ -100,7 +99,6 @@ const EditMajorForm = () => {
                     value={majorName}
                     onChange={onChangeMajorName}
                     className="input"
-                    // placeholder="Subject"
                   />
                 </div>
               </div>
@@ -127,7 +125,6 @@ const EditMajorForm = () => {
                     value={majorDescription}
                     onChange={onChangeMajorDescription}
                     className="textarea is-info"
-                    // placeholder="Subject"
                   />
                 </div>
               </div>
