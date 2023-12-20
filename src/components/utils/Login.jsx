@@ -60,6 +60,7 @@ const Login = () => {
                     <input
                       type="text"
                       className="input"
+                      required
                       value={username}
                       onChange={onChangeUsername}
                       placeholder="Username"
@@ -72,6 +73,7 @@ const Login = () => {
                     <input
                       type="password"
                       className="input"
+                      required
                       value={password}
                       onChange={onChangePassword}
                       placeholder="*******"
