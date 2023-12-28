@@ -3,9 +3,9 @@ import Layout from '../utils/Layout';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { GetMe } from '../../features/authSlice';
-import SubjectsList from '../../components/subjects/SubjectList';
+import EditCriteriaForm from '../../components/criteria/EditCriteriaForm';
 
-const Subjects = () => {
+const EditCriteria = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -13,17 +13,19 @@ const Subjects = () => {
 
   useEffect(() => {
     dispatch(GetMe());
+  }, [dispatch]);
 
+  useEffect(() => {
     if (isError) {
       navigate('/');
     }
-  }, [dispatch, isError, navigate]);
+  }, [isError, navigate]);
 
   return (
     <Layout>
-      <SubjectsList />
+      <EditCriteriaForm />
     </Layout>
   );
 };
 
-export default Subjects;
+export default EditCriteria;
