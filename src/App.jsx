@@ -15,6 +15,8 @@ import EditMajor from './pages/majors/EditMajor';
 import AddMajor from './pages/majors/AddMajor';
 import Majors from './pages/majors/Majors';
 import axios from 'axios';
+import Criteria from './pages/criteria/Criteria';
+import EditCriteria from './pages/criteria/EditCriteria';
 axios.defaults.withCredentials = true;
 
 function App() {
@@ -36,6 +38,10 @@ function App() {
           <Route path="/majors/:studentId/add" element={<AddMajor />} />
           <Route path="/majors/:studentId/:id" element={<EditMajor />} />
           <Route path="/majors/:studentId" element={<Majors />} />
+          <Route path="/students/add" element={<AddStudent />} />
+          <Route path="/students/:id" element={<EditStudent />} />
+          <Route path="/criteria" element={<Criteria />} />
+          <Route path="/criteria/edit" element={<EditCriteria />} />
           <Route path="/demo" element={<AddAdmin />} />
         </Routes>
       </BrowserRouter>

@@ -35,6 +35,11 @@ const SideBar = () => {
               <IoDocument /> Student
             </NavLink>
           </li>
+          <li>
+            <NavLink to={'/criteria'}>
+              <IoDocument /> Criteria
+            </NavLink>
+          </li>
         </ul>
         {user && user.roles === 'admin' && (
           <div>
